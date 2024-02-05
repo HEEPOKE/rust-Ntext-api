@@ -3,6 +3,7 @@
     "chrono",
     "dotenv",
     "dotenvy",
+    "Insertable",
     "ntex",
     "utoipa"
   ],

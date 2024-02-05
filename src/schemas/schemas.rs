@@ -1,7 +1,7 @@
 // @generated automatically by Diesel CLI.
 
 diesel::table! {
-    accounts (id) {
+    account (id) {
         id -> Int4,
         username -> Varchar,
         email -> Varchar,
@@ -12,4 +12,4 @@ diesel::table! {
     }
 }
 
-diesel::allow_tables_to_appear_in_same_query!(accounts,);
+diesel::allow_tables_to_appear_in_same_query!(account,);

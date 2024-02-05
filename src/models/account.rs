@@ -1,4 +1,4 @@
-use crate::schemas::schemas::accounts;
+use crate::schemas::schemas::account;
 use chrono::NaiveDateTime;
 use diesel::prelude::*;
 use serde::{Deserialize, Serialize};
@@ -18,7 +18,7 @@ use validator::Validate;
     Validate,
     Clone,
 )]
-#[diesel(table_name = accounts)]
+#[diesel(table_name = account)]
 #[diesel(primary_key(id))]
 #[diesel(check_for_backend(diesel::pg::Pg))]
 pub struct Account {
@@ -39,7 +39,7 @@ pub struct Account {
 }
 
 #[derive(Debug, PartialEq, Insertable, Serialize, Deserialize, ToSchema, Validate)]
-#[diesel(table_name = accounts)]
+#[diesel(table_name = account)]
 pub struct NewAccount<'a> {
     #[schema(example = "account", required = true)]
     #[validate(length(min = 1, max = 255))]
@@ -54,7 +54,7 @@ pub struct NewAccount<'a> {
 }
 
 #[derive(Debug, Insertable, Serialize, Deserialize, ToSchema, Validate)]
-#[diesel(table_name = accounts)]
+#[diesel(table_name = account)]
 pub struct CreateAccountRequest {
     #[schema(example = "account")]
     #[validate(length(min = 1, max = 255))]
@@ -69,7 +69,7 @@ pub struct CreateAccountRequest {
 }
 
 #[derive(AsChangeset, ToSchema, Validate)]
-#[diesel(table_name = accounts)]
+#[diesel(table_name = account)]
 pub struct UpdatedAccount<'a> {
     #[schema(example = "account")]
     #[validate(length(min = 1, max = 255))]
