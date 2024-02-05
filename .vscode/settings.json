@@ -1,0 +1,5 @@
+{
+  "cSpell.words": ["dotenv", "ntex"],
+  "rust-analyzer.linkedProjects": ["Cargo.toml"],
+  "rust-analyzer.showUnlinkedFileNotification": false
+}
