@@ -1,0 +1,11 @@
+[print_schema]
+file = "src/schemas/schemas.rs"
+filter = { only_tables = ["accounts"] }
+custom_type_derives = [
+    "diesel::query_builder::QueryId",
+    "diesel::sql_types::SqlType",
+    "std::fmt::Debug",
+]
+
+[migrations_directory]
+dir = "migrations"

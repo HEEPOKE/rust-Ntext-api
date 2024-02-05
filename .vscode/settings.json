@@ -1,5 +1,11 @@
 {
-  "cSpell.words": ["dotenv", "ntex"],
+  "cSpell.words": [
+    "chrono",
+    "dotenv",
+    "dotenvy",
+    "ntex",
+    "utoipa"
+  ],
   "rust-analyzer.linkedProjects": ["Cargo.toml"],
   "rust-analyzer.showUnlinkedFileNotification": false
 }
