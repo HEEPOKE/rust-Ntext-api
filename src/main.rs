@@ -11,11 +11,10 @@ use configs::database::db_connection;
 #[ntex::main]
 async fn main() -> std::io::Result<()> {
     dotenv::dotenv().ok();
-
     env_logger::init_from_env(Env::default().default_filter_or("info"));
 
     let host = &CONFIG.host;
-    let port = CONFIG.port.parse().unwrap_or_else(|_| {
+    let port = CONFIG.port.parse::<u16>().unwrap_or_else(|_| {
         eprintln!("Invalid port number specified. Using default port 6476.");
         6476
     });
@@ -25,7 +24,6 @@ async fn main() -> std::io::Result<()> {
         let connection = db_connection(database_url);
         App::new()
             .state(connection.clone())
-            .wrap(middleware::Logger::default())
             .wrap(middleware::Logger::new("%a %{User-Agent}i"))
             .route("/", web::get().to(|| async { HttpResponse::Ok().finish() }))
     })
